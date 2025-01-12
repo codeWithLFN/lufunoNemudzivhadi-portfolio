@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hero Background Parallax Effect */
+@keyframes heroBgAnimation {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+.hero-background {
+  background-image: url('/path-to-your-background-image.jpg');
+  background-size: 200% 200%;
+  animation: heroBgAnimation 10s linear infinite;
+}
+
+/* Glitch Effect on Buttons */
+@keyframes glitch {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+.glitch-effect:hover {
+  animation: glitch 1s linear infinite;
+}

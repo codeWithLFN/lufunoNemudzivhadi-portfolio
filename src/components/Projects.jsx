@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLink } from "react-icons/fa"; // Icons for GitHub and Demo Links
+import { useState } from "react";
+import * as THREE from "three"; // Import Three.js for 3D effects
 
 const Projects = () => {
   // Array of projects with their details
@@ -11,6 +13,7 @@ const Projects = () => {
       techStack: ["React Native", "Expo", "Gemini API", "Google Maps API", "Jitsi Meet", "Node.js"],
       githubLink: "https://github.com/codeWithLFN/Bantu_Health",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "Software Development",
     },
     {
       title: "Vitality Health API - Medical AI Assistant",
@@ -19,6 +22,7 @@ const Projects = () => {
       techStack: ["Node.js", "Express.js", "Google Generative AI", "dotenv"],
       githubLink: "https://github.com/codewithlfn/vitality-health-api",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "AI",
     },
     {
       title: "AviaryQuest - Bird Enthusiast Android Application",
@@ -27,6 +31,7 @@ const Projects = () => {
       techStack: ["Kotlin", "TensorFlow Lite", "eBird API", "Google Maps API"],
       githubLink: "https://github.com/codeWithLFN/AviaryQuest",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "Software Development",
     },
     {
       title: "Disaster Alleviation Foundation Web Application",
@@ -35,6 +40,7 @@ const Projects = () => {
       techStack: ["ASP.NET Core MVC", "Microsoft Identity", "Azure SQL"],
       githubLink: "https://github.com/codeWithLFN/Disaster-Alleviation-Foundation",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "Software Development",
     },
     {
       title: "Medical Suite - Doctor's Appointment System",
@@ -43,6 +49,7 @@ const Projects = () => {
       techStack: ["HTML5", "CSS3", "JavaScript", "Firebase", "Kotlin"],
       githubLink: "https://github.com/codeWithLFN/MedicalSuite--Doctor_Appointment_System",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "Software Development",
     },
     {
       title: "Sneaker Snap - Sneaker Collection Tracking App",
@@ -51,14 +58,7 @@ const Projects = () => {
       techStack: ["Kotlin", "Firebase"],
       githubLink: "https://github.com/codeWithLFN/SneakerSnap",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
-    },
-    {
-      title: "Time Management for Students Web Application",
-      description:
-        "A web app designed to boost student productivity by providing calendar and task management features, with SQL database integration for data storage.",
-      techStack: ["C#", "ASP.NET", "SQL"],
-      githubLink: "https://github.com/codeWithLFN/WPF-Student-Self-study-Program",
-      demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "Software Development",
     },
     {
       title: "Real-time Network Traffic Dashboard",
@@ -67,6 +67,7 @@ const Projects = () => {
       techStack: ["Python", "Streamlit"],
       githubLink: "https://github.com/codeWithLFN/real-time-network-traffic-dashboard",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "Cybersecurity",
     },
     {
       title: "Honeypot in Python: A Practical Guide to Security Deception",
@@ -75,6 +76,7 @@ const Projects = () => {
       techStack: ["Python", "Security Deception"],
       githubLink: "https://github.com/codeWithLFN/honeypot-in-python",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "Cybersecurity",
     },
     {
       title: "Simple Web Application Security Scanner",
@@ -83,11 +85,44 @@ const Projects = () => {
       techStack: ["Python", "Security", "Web Application"],
       githubLink: "https://github.com/codeWithLFN/web-application-security-scanner",
       demoLink: "https://your-demo-link.com", // Replace with actual demo URL
+      category: "Cybersecurity",
     },
   ];
 
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredProjects = selectedCategory === "All" ? projectData : projectData.filter((project) => project.category === selectedCategory);
+
   return (
     <section id="projects" className="py-16 bg-white">
+      {/* Category Filter */}
+      <div className="text-center mb-8">
+        <button
+          onClick={() => setSelectedCategory("All")}
+          className="px-6 py-2 bg-teal-500 text-white rounded-lg mr-4 hover:bg-teal-600 transition"
+        >
+          All
+        </button>
+        <button
+          onClick={() => setSelectedCategory("Software Development")}
+          className="px-6 py-2 bg-teal-500 text-white rounded-lg mr-4 hover:bg-teal-600 transition"
+        >
+          Software Development
+        </button>
+        <button
+          onClick={() => setSelectedCategory("Cybersecurity")}
+          className="px-6 py-2 bg-teal-500 text-white rounded-lg mr-4 hover:bg-teal-600 transition"
+        >
+          Cybersecurity
+        </button>
+        <button
+          onClick={() => setSelectedCategory("AI")}
+          className="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition"
+        >
+          AI
+        </button>
+      </div>
+
       {/* Title Section with Fade-in Animation */}
       <motion.h2
         className="text-3xl font-bold text-center mb-8 text-gray-800"
@@ -105,7 +140,7 @@ const Projects = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        {projectData.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <motion.div
             key={index}
             className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out"
@@ -147,6 +182,16 @@ const Projects = () => {
             </div>
           </motion.div>
         ))}
+      </motion.div>
+
+      {/* Three.js Integration */}
+      <motion.div
+        className="mt-16 flex justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.7 }}
+      >
+        <div id="threejs-container" className="w-full h-64"></div>
       </motion.div>
     </section>
   );
