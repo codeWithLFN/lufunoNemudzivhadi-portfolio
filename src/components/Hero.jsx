@@ -1,73 +1,115 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Typing from 'react-typing-effect';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import ParticlesBackground from './ParticlesBackground';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white flex justify-center items-center overflow-hidden">
-      {/* Main Content */}
-      <div className="flex flex-col justify-center items-center text-center w-full px-12 z-10">
-        {/* Name */}
-        <motion.h1
-          className="text-5xl font-semibold text-white mb-4 font-poppins"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          Hi, I'm Lufuno Nemudzivhadi
-        </motion.h1>
-
-        {/* Role with Typing Effect */}
-        <motion.div
-          className="text-3xl text-white mb-6 font-light"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <Typing
-            text="A Software Developer & Cybersecurity Specialist"
-            speed={100}
-            eraseDelay={2000}
-            typingDelay={500}
-            className="font-light"
-          />
-        </motion.div>
-
-        {/* Skills */}
-        <motion.div
-          className="flex justify-center gap-12 text-4xl mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          <div className="group relative">
-            <div className="hover:text-gray-400 transition-all">💻</div>
-            <span className="absolute opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm text-gray-400">Software Development</span>
-          </div>
-          <div className="group relative">
-            <div className="hover:text-gray-400 transition-all">🔐</div>
-            <span className="absolute opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm text-gray-400">Cybersecurity</span>
-          </div>
-          <div className="group relative">
-            <div className="hover:text-gray-400 transition-all">⚙️</div>
-            <span className="absolute opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm text-gray-400">Problem Solving</span>
-          </div>
-        </motion.div>
-
-        {/* Resume Button */}
-        <motion.div
-          className="mt-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-        >
-          <button
-            className="px-6 py-3 bg-transparent border-2 border-white text-white rounded-full hover:bg-gray-500 hover:scale-105 transition-all duration-300"
-            onClick={() => window.location.href = '/path-to-resume.pdf'}
+    <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+      <ParticlesBackground />
+      
+      <div className="absolute inset-0 flex items-center justify-center px-4">
+        <div className="max-w-4xl w-full space-y-8 text-center z-10">
+          <motion.h1
+            className="text-6xl md:text-7xl font-bold"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            Download Resume
-          </button>
-        </motion.div>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400">
+              Hi, I'm Lufuno Nemudzivhadi
+            </span>
+          </motion.h1>
+
+          <motion.div
+            className="text-2xl md:text-3xl text-gray-300"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <Typing
+              text={[
+                "Software Developer",
+                "Cybersecurity Specialist",
+                "Problem Solver"
+              ]}
+              speed={50}
+              eraseSpeed={50}
+              typingDelay={1000}
+            />
+          </motion.div>
+
+          <motion.div
+            className="flex justify-center gap-8 py-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            {[
+              { icon: '💻', text: 'Development' },
+              { icon: '🔐', text: 'Security' },
+              { icon: '⚡', text: 'Performance' },
+            ].map((skill, index) => (
+              <motion.div
+                key={index}
+                className="group relative p-4 bg-gray-800/30 rounded-xl backdrop-blur-sm"
+                whileHover={{ y: -5, scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="text-4xl">{skill.icon}</div>
+                <p className="text-sm text-gray-300 mt-2">{skill.text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            className="flex justify-center gap-4 mt-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+          >
+            <button
+              onClick={() => window.location.href = '/resume/lufuno-nemudzivhadi-resume.pdf'}
+              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-full
+                       hover:from-blue-600 hover:to-teal-600 transform hover:scale-105 transition-all duration-300
+                       shadow-lg hover:shadow-xl"
+            >
+              Download CV
+            </button>
+            <button
+              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-3 border-2 border-blue-500 text-blue-500 rounded-full
+                       hover:bg-blue-500 hover:text-white transform hover:scale-105 transition-all duration-300"
+            >
+              Contact Me
+            </button>
+          </motion.div>
+
+          <motion.div
+            className="flex justify-center gap-6 mt-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            {[
+              { Icon: FaGithub, link: "https://github.com/yourusername" },
+              { Icon: FaLinkedin, link: "https://linkedin.com/in/yourusername" },
+              { Icon: FaTwitter, link: "https://twitter.com/yourusername" }
+            ].map((social, index) => (
+              <motion.a
+                key={index}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-400 text-2xl transition-colors duration-300"
+                whileHover={{ scale: 1.2 }}
+              >
+                <social.Icon />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
