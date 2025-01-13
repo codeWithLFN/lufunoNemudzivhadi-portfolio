@@ -1,137 +1,154 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { FaBriefcase, FaGraduationCap, FaCertificate } from "react-icons/fa";
 
-// Experience Data
-const experienceData = [
-  {
-    title: "Cybersecurity Candidate",
-    company: "CAPACITI (Internship)",
-    date: "September 2024 – Present",
-    description:
-      "Gaining hands-on experience in cybersecurity practices including threat detection, vulnerability assessments, and security protocols.",
-    skills: ["Cybersecurity", "Vulnerability Assessment", "Security Protocols", "Threat Detection"],
-  },
-];
-
-// Certifications Data
-const certificationsData = [
-  {
-    title: "GitHub Foundation",
-    issuer: "GitHub",
-    year: "2024",
-    pdf: "/certificates/github-certificate.pdf",
-  },
-  {
-    title: "Foundational C# with Microsoft",
-    issuer: "freeCodeCamp",
-    year: "2023",
-    pdf: "/certificates/csharp-certificate.pdf",
-  },
-  {
-    title: "Introduction to Cybersecurity",
-    issuer: "Cisco",
-    year: "2023",
-    pdf: "/certificates/cybersecurity-certificate.pdf",
-  },
-];
+const experienceData = {
+  work: [
+    {
+      title: "Cybersecurity Candidate",
+      company: "CAPACITI (Internship)",
+      date: "September 2024 – Present",
+      description:
+        "Gaining hands-on experience in cybersecurity practices including threat detection, vulnerability assessments, and security protocols.",
+      skills: ["Cybersecurity", "Vulnerability Assessment", "Security Protocols", "Threat Detection"],
+    }
+  ],
+  education: [
+    {
+      Qulification: "Diploma in Information Technology(Software Development)",
+      institution: "IIE Rosebank College",
+      duration: "2021 - 2023",
+      description: "Specialized in software development"
+    }
+  ],
+  certificates: [
+    {
+      title: "GitHub Foundation",
+      issuer: "GitHub",
+      year: "2024",
+      pdf: "/certificates/github-certificate.pdf",
+    },
+    {
+      title: "Foundational C# with Microsoft",
+      issuer: "freeCodeCamp",
+      year: "2023",
+      pdf: "/certificates/csharp-certificate.pdf",
+    },
+    {
+      title: "Introduction to Cybersecurity",
+      issuer: "Cisco",
+      year: "2023",
+      pdf: "/certificates/cybersecurity-certificate.pdf",
+    },
+  ]
+};
 
 const Experience = () => {
-  const [activeCard, setActiveCard] = useState(null);
-
   return (
-    <section id="experience" className="py-20 px-8 md:px-16 bg-gradient-to-b from-gray-50 to-white">
-      <motion.div
-        className="container mx-auto max-w-6xl"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2 
-          className="text-4xl font-bold mb-16 text-center"
-          initial={{ y: -50 }}
-          animate={{ y: 0 }}
-          transition={{ type: "spring", stiffness: 100 }}
+          className="text-4xl font-bold text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          Professional <span className="text-teal-500 relative">
-            Experience
-            <motion.div 
-              className="absolute bottom-0 left-0 w-full h-1 bg-teal-500"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            />
+
+          <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
+            Experience & Education
           </span>
         </motion.h2>
 
-        {/* Work Experience Section */}
-        <div className="mb-20 grid md:grid-cols-2 gap-8">
-          {experienceData.map((exp, index) => (
-            <motion.div
-              key={index}
-              className={`bg-white rounded-xl p-8 shadow-xl transform transition-all duration-300 
-                ${activeCard === index ? 'scale-105 border-2 border-teal-500' : 'hover:shadow-2xl'}`}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -5 }}
-              onMouseEnter={() => setActiveCard(index)}
-              onMouseLeave={() => setActiveCard(null)}
-            >
-              <div className="flex items-center mb-4">
-                <div className="w-2 h-12 bg-teal-500 rounded-full mr-4" />
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-800">{exp.title}</h4>
-                  <p className="text-teal-600 font-medium">{exp.company}</p>
-                </div>
-              </div>
-              <p className="text-gray-500 font-medium mb-4">{exp.date}</p>
-              <p className="text-gray-700 leading-relaxed mb-6">{exp.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {exp.skills.map((skill, idx) => (
-                  <span 
-                    key={idx}
-                    className="px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-sm font-medium"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Work Experience */}
+          <div>
+            <div className="flex items-center gap-3 mb-8">
+              <FaBriefcase className="text-2xl text-teal-600" />
+              <h3 className="text-2xl font-bold text-gray-800">Work Experience</h3>
+            </div>
+            
+            <div className="space-y-8">
+              {experienceData.work.map((job, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white p-6 rounded-xl shadow-lg"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <h4 className="text-xl font-semibold text-gray-800">{job.title}</h4>
+                  <p className="text-teal-600 font-medium mt-1">{job.company}</p>
+                  <p className="text-gray-500 text-sm mt-1">{job.duration}</p>
+                  <p className="text-gray-600 mt-4">{job.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {job.skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                    </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Education */}
+          <div>
+            <div className="flex items-center gap-3 mb-8">
+              <FaGraduationCap className="text-2xl text-teal-600" />
+              <h3 className="text-2xl font-bold text-gray-800">Education</h3>
+            </div>
+
+            <div className="space-y-8">
+              {experienceData.education.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white p-6 rounded-xl shadow-lg"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <h4 className="text-xl font-semibold text-gray-800">{edu.degree}</h4>
+                  <p className="text-teal-600 font-medium mt-1">{edu.institution}</p>
+                  <p className="text-gray-500 text-sm mt-1">{edu.duration}</p>
+                  <p className="text-gray-600 mt-4">{edu.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Certifications Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <h3 className="text-3xl font-bold text-gray-800 mb-8">Professional Certifications</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certificationsData.map((cert, index) => (
+        {/* Certificates */}
+        <div className="mt-16">
+          <div className="flex items-center gap-3 mb-8">
+            <FaCertificate className="text-2xl text-teal-600" />
+            <h3 className="text-2xl font-bold text-gray-800">Certificates</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {experienceData.certificates.map((cert, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl overflow-hidden shadow-lg"
-                whileHover={{ 
-                  scale: 1.03,
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-                }}
+                className="bg-white p-6 rounded-xl shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-800 mb-2">{cert.title}</h4>
-                  <div className="flex items-center justify-between mb-4">
-                    <p className="text-teal-600 font-medium">{cert.issuer}</p>
-                    <span className="px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-sm">
-                      {cert.year}
-                    </span>
-                  </div>
-                  <div className="relative h-48 mb-4">
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-gray-800">{cert.title}</h4>
+                  <p className="text-teal-600">{cert.issuer}</p>
+                  <p className="text-gray-500 text-sm">{cert.date}</p>
+                  
+                  <div className="relative w-full h-40">
                     <iframe
                       src={cert.pdf}
                       className="absolute inset-0 w-full h-full rounded-lg border border-gray-200"
                       title={`${cert.title} Preview`}
                     />
                   </div>
+                  
                   <a
                     href={cert.pdf}
                     target="_blank"
@@ -147,10 +164,9 @@ const Experience = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
-
 export default Experience;

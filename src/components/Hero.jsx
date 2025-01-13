@@ -70,12 +70,12 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
           >
             <button
-              onClick={() => window.location.href = '/resume/lufuno-nemudzivhadi-resume.pdf'}
+              onClick={() => window.location.href = "/resume/Lufuno_Nemudzivhadi_resume.pdf"}
               className="px-8 py-3 bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-full
                        hover:from-blue-600 hover:to-teal-600 transform hover:scale-105 transition-all duration-300
                        shadow-lg hover:shadow-xl"
             >
-              Download CV
+              Download Resume
             </button>
             <button
               onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}

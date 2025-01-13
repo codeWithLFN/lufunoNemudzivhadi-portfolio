@@ -1,117 +1,120 @@
 import { motion } from "framer-motion";
-import { FaCode, FaDatabase, FaTools, FaUserTie, FaProjectDiagram, FaShieldAlt } from "react-icons/fa";
+import { FaCode, FaGlobe, FaTools, FaShieldAlt, FaCog } from "react-icons/fa";
 
 const skillsData = [
   {
-    category: "Core",
+    category: "Programming Languages",
     skills: [
-      { name: "C#", percentage: 90 },
-      { name: "Kotlin", percentage: 85 },
-      { name: "Java", percentage: 80 },
-      { name: "SQL", percentage: 95 },
-      { name: "HTML5", percentage: 90 },
-      { name: "CSS3", percentage: 85 },
-      { name: "JavaScript", percentage: 80 },
-      { name: "Git", percentage: 90 },
+      { name: "C#", level: 90 },
+      { name: "JavaScript", level: 85 },
+      { name: "Kotlin", level: 80 },
+      { name: "SQL", level: 80 },
+      { name: "Java", level: 85 }
     ],
-    icon: <FaCode className="text-teal-500 text-3xl" />,
+    icon: <FaCode className="text-3xl" />
   },
   {
-    category: "Databases",
+    category: "Web Technologies",
     skills: [
-      { name: "Azure SQL", percentage: 80 },
+      { name: "HTML5/CSS3", level: 90 },
+      { name: "React.js", level: 85 },
+      { name: "ASP.NET", level: 85 },
+      { name: "Web API", level: 80 }
+    ],
+    icon: <FaGlobe className="text-3xl" />
+  },
+  {
+    category: "Tools & Frameworks",
+    skills: [
+      { name: ".NET Core", level: 90 },
+      { name: "Entity Framework", level: 85 },
+      { name: "Git", level: 90 },
       { name: "Firebase", percentage: 85 },
+      { name: "Azure", level: 80 }
     ],
-    icon: <FaDatabase className="text-teal-500 text-3xl" />,
-  },
-  {
-    category: "Frameworks/Tools",
-    skills: [
-      { name: "ASP.NET (MVC)", percentage: 90 },
-      { name: ".NET Stack", percentage: 85 },
-      { name: ".Net Web API", percentage: 80 },
-      { name: "Entity Framework", percentage: 80 },
-      { name: "Bootstrap", percentage: 85 },
-      { name: "Visual Studio", percentage: 90 },
-      { name: "Visual Studio Code", percentage: 95 },
-      { name: "Android Studio", percentage: 85 },
-      { name: "IntelliJ", percentage: 80 },
-    ],
-    icon: <FaTools className="text-teal-500 text-3xl" />,
+    icon: <FaTools className="text-3xl" />
   },
   {
     category: "Cybersecurity",
     skills: [
-      { name: "Network Traffic Analysis", percentage: 75 },
-      { name: "Security Deception (Honeypots)", percentage: 80 },
-      { name: "Web Application Security Scanning", percentage: 70 },
-      { name: "Threat Modeling", percentage: 65 },
-      { name: "Vulnerability Assessment", percentage: 80 },
+      { name: "Network Traffic Analysis", level: 85 },
+      { name: "Web Application Security Scanning", level: 80 },
+      { name: "Threat Analysis", level: 65 },
+      { name: "Vulnerability Assessment", level: 70 },
+      { name: "Security Tools", level: 69 }
     ],
-    icon: <FaShieldAlt className="text-teal-500 text-3xl" />,
+    icon: <FaShieldAlt className="text-3xl" />
   },
-  
   {
-    category: "Other",
+    category: "Development Practices",
     skills: [
-      { name: "SDLC", percentage: 85 },
-      { name: "Agile Methodologies", percentage: 90 },
+      { name: "Agile/Scrum", level: 90 },
+      { name: "SDLC", level: 85 }
     ],
-    icon: <FaProjectDiagram className="text-teal-500 text-3xl" />,
-  },
+    icon: <FaCog className="text-3xl" />
+  }
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="bg-gray-50 py-16 px-8 md:px-16 text-gray-800">
-      <motion.div
-        className="container mx-auto max-w-5xl"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-4xl font-bold mb-8 text-center text-gray-800">
-          My <span className="text-teal-500">Skills</span>
-        </h2>
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <motion.h2 
+          className="text-4xl font-bold text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
+            Technical Skills
+          </span>
+        </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillsData.map((skillCategory, index) => (
+          {skillsData.map((category, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="flex items-center gap-4 mb-4">
-                {skillCategory.icon}
-                <h3 className="text-2xl font-semibold text-gray-800">{skillCategory.category}</h3>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-gradient-to-r from-teal-500 to-blue-500 rounded-lg text-white">
+                  {category.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  {category.category}
+                </h3>
               </div>
-              <ul className="space-y-4">
-                {skillCategory.skills.map((skill, idx) => (
-                  <motion.li
+              
+              <div className="space-y-4">
+                {category.skills.map((skill, idx) => (
+                  <motion.div 
                     key={idx}
-                    className="text-gray-600"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: idx * 0.1, duration: 0.5 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: idx * 0.1 }}
                   >
-                    <div className="flex justify-between items-center">
-                      <span>{skill.name}</span>
-                      <span>{skill.percentage}%</span>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-gray-600">{skill.name}</span>
+                      <span className="text-gray-400">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
-                      <div
-                        className="bg-teal-500 h-2 rounded-full"
-                        style={{ width: `${skill.percentage}%` }}
-                      ></div>
+                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-teal-500 to-blue-500"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                      />
                     </div>
-                  </motion.li>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
