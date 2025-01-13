@@ -50,17 +50,7 @@ const skillsData = [
     ],
     icon: <FaShieldAlt className="text-teal-500 text-3xl" />,
   },
-  {
-    category: "Personal Skills",
-    skills: [
-      { name: "Problem Solving", percentage: 95 },
-      { name: "Communication", percentage: 90 },
-      { name: "Adaptability", percentage: 90 },
-      { name: "Teamwork", percentage: 85 },
-      { name: "Time Management", percentage: 80 },
-    ],
-    icon: <FaUserTie className="text-teal-500 text-3xl" />,
-  },
+  
   {
     category: "Other",
     skills: [
