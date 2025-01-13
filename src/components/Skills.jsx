@@ -29,7 +29,8 @@ const skillsData = [
       { name: ".NET Core", level: 90 },
       { name: "Entity Framework", level: 85 },
       { name: "Git", level: 90 },
-      { name: "Firebase", percentage: 85 },
+      { name: "Postman", level: 75 },
+      { name: "Firebase", level: 80 },
       { name: "Azure", level: 80 }
     ],
     icon: <FaTools className="text-3xl" />

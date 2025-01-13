@@ -92,9 +92,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             {[
-              { Icon: FaGithub, link: "https://github.com/yourusername" },
-              { Icon: FaLinkedin, link: "https://linkedin.com/in/yourusername" },
-              { Icon: FaTwitter, link: "https://twitter.com/yourusername" }
+              { Icon: FaGithub, link: "https://github.com/codeWithLFN" },
+              { Icon: FaLinkedin, link: "https://linkedin.com/in/lufuno-nemudzivhadi026" }
             ].map((social, index) => (
               <motion.a
                 key={index}

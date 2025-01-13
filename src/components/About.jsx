@@ -36,7 +36,7 @@ const About = () => {
           >
             <div className="w-64 h-64 mx-auto relative z-10">
               <img
-                src="/your-image.jpg"
+                src="src/assets/pic.jpg"
                 alt="Lufuno Nemudzivhadi"
                 className="w-full h-full object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition-all duration-500"
               />
