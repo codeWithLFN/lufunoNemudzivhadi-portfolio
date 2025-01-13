@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const AboutMe = () => {
+const About = () => {
   return (
     <section id="about" className="bg-gray-50 py-16 px-8 md:px-16 text-gray-800">
       <motion.div
@@ -14,9 +14,9 @@ const AboutMe = () => {
         </h2>
 
         <div className="flex flex-col md:flex-row gap-12 items-center">
-          {/* Left Side: Image */}
+          {/* Image */}
           <motion.div
-            className="w-1/3 rounded-full overflow-hidden"
+            className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-105"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
@@ -24,35 +24,31 @@ const AboutMe = () => {
             <img
               src="/path-to-your-image.jpg"
               alt="Lufuno Nemudzivhadi"
-              className="w-full h-full object-cover rounded-full shadow-lg"
+              className="w-full h-full object-cover rounded-full"
             />
           </motion.div>
 
-          {/* Right Side: About Text */}
+          {/* Text */}
           <motion.div
             className="w-full md:w-2/3 text-center md:text-left"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <p className="text-lg text-gray-600 mb-6">
-              Hi, I'm Lufuno Nemudzivhadi, a passionate software developer and cybersecurity specialist. 
-              I specialize in developing full-stack applications, ensuring secure coding practices, and 
-              leveraging cutting-edge tools to build scalable and efficient software systems. With a 
-              strong foundation in problem-solving and a commitment to continuous learning, I am always 
-              looking for new challenges and opportunities to improve my skills.
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed transition-all duration-300 ease-in-out hover:text-teal-500">
+              Hi, I'm Lufuno, a software developer and cybersecurity enthusiast focused on building secure, scalable systems.
             </p>
-            <p className="text-lg text-gray-600 mb-6">
-              My journey in software development started at a young age, where I fell in love with 
-              creating solutions that could positively impact the world. Over time, I expanded my skillset 
-              in cybersecurity to ensure the software I create is secure and resilient against the ever-evolving 
-              digital threats. I believe that technology should not only solve problems but do so in a way that 
-              ensures the safety and privacy of users.
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed transition-all duration-300 ease-in-out hover:text-teal-500">
+              I'm passionate about solving real-world problems with technology, ensuring safety through secure practices in every step.
             </p>
-            <p className="text-lg text-gray-600">
-              I am currently looking for opportunities where I can contribute to innovative projects and 
-              collaborate with talented teams to build solutions that make a difference. Let's connect!
-            </p>
+            <div className="mt-8 text-center md:text-left">
+              <a
+                href="#contact"
+                className="inline-block bg-teal-500 text-white px-6 py-3 rounded-full shadow-lg transform transition duration-300 ease-in-out hover:bg-teal-600 hover:scale-105"
+              >
+                Let's Connect
+              </a>
+            </div>
           </motion.div>
         </div>
       </motion.div>
@@ -60,4 +56,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default About;
