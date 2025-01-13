@@ -31,8 +31,7 @@ const Hero = () => {
             <Typing
               text={[
                 "Software Developer",
-                "Cybersecurity Specialist",
-                "Problem Solver"
+                "Cybersecurity Specialist"
               ]}
               speed={50}
               eraseSpeed={50}
