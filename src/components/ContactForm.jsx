@@ -23,7 +23,6 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // https://formspree.io/f/mzzzozze
     const response = await fetch("https://formspree.io/f/mzzzozze", {
       method: "POST",
       headers: {
@@ -43,18 +42,36 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-8 md:px-16 bg-teal-500 text-white">
+    <section id="contact" className="py-16 px-8 md:px-16 bg-gray-100 text-gray-800">
       <motion.div
-        className="container mx-auto max-w-5xl"
+        className="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          Get in <span className="text-teal-200">Touch</span>
-        </h2>
+        {/* Contact Information */}
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-teal-600">
+            Let's Connect
+          </h2>
+          <p className="text-lg text-gray-600">
+            Feel free to reach out for any inquiries or collaborations. I'll get back to you as soon as possible!
+          </p>
+          <div>
+            <p className="font-semibold text-lg">Email:</p>
+            <p className="text-gray-700">lufuno.nemudzivhadi26@outlook.com</p>
+          </div>
+          <div>
+            <p className="font-semibold text-lg">Phone:</p>
+            <p className="text-gray-700">+27 69 534 1208</p>
+          </div>
+        </div>
 
-        <form onSubmit={handleSubmit} className="bg-white text-gray-800 p-8 rounded-lg shadow-md">
+        {/* Contact Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-8 rounded-lg shadow-lg space-y-6"
+        >
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Name
