@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaCode, FaShieldAlt, FaDatabase } from "react-icons/fa";
+import pic from "../assets/pic.jpg";
 
 const About = () => {
   const skills = [
@@ -36,7 +37,7 @@ const About = () => {
           >
             <div className="w-64 h-64 mx-auto relative z-10">
               <img
-                src="src/assets/pic.jpg"
+                src={pic}
                 alt="Lufuno Nemudzivhadi"
                 className="w-full h-full object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition-all duration-500"
               />
