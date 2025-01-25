@@ -1,7 +1,6 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import Typing from 'react-typing-effect';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 
 const Hero = () => {
@@ -31,7 +30,8 @@ const Hero = () => {
             <Typing
               text={[
                 "Software Developer",
-                "Cybersecurity Specialist"
+                "Cybersecurity Analyst",
+                "Mobile App Developer",
               ]}
               speed={50}
               eraseSpeed={50}
