@@ -12,6 +12,7 @@ const projectsData = [
       "Gemini API",
       "Google Maps API",
       "Jitsi Meet",
+      "Lelapa AI",
       "Node.js",
     ],
     githubLink: "https://github.com/codeWithLFN/Bantu_Health",
@@ -96,7 +97,7 @@ const projectsData = [
       " a collaborative bill-splitting application built with React. Easily manage shared expenses with friends, add bills, track individual shares, and keep everyone in the loop",
     techStack: ["React", "CSS", "JavaScript"],
     githubLink: "https://github.com/codeWithLFN/SplitWiseApp",
-    liveLink: "https://splitwiseapp.vercel.app/", // Replace with actual demo URL
+    liveLink: "https://splitwiseapp.vercel.app/",
     category: "Web Development",
   },
 ];
